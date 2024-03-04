@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import { Container,Col,Row } from "react-bootstrap";
+import NavBar from "./ui/navigation/nav";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,7 +17,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Container fluid className="p-0" id="main-container">
+         <Row id="header " className="p-0 m-0 fixed-top">
+          <NavBar/>
+         </Row> 
+         <Row id="body" className="m-0">
+         {children}
+         </Row> 
+         
+        </Container>
+        
+      </body>
     </html>
   );
 }
